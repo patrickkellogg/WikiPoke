@@ -1,0 +1,3 @@
+.pokeSidebar {
+   @extend .blue, .lighten-4;
+ }

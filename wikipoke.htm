@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WikiPoké</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+       href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/materialize.min.css">
+  </head>
+  <body>
+    <div class="row" id="rowTop">
+
+      <div class="col s12" id="pokeLogin">
+        Not logged in
+      </div>
+
+    </div>
+    <div class="row" id="rowBody">
+
+      <div class="col s2 m2 l2" id = "pokeSidebar">
+        <img src="images/wikilogo.jpg" width=50><br>
+        Main page<br>
+        Diglett<br>
+        Magikarp<br>
+        Eevee<br>
+      </div>
+
+      <div class="col s10 m10 l10" id="pokeTabs">
+        <button onclick="showPoke('main')">Main</button>
+        <button onclick="showPoke('diglett')">Diglett</button>
+        <button onclick="showPoke('magikarp')">Magikarp</button>
+        <button onclick="showPoke('eevee')">Eevee</button>
+      </div>
+
+      <div class="col s10 m10 l10" id="pokeHeader">
+        <div class="HeaderFont">
+          WikiPoké
+        </div>
+        <hr>
+        <div class="FromFont">
+          from http://fizal.me/pokeapi/
+        </div>
+      </div>
+
+      <div class="col s6 m6 l6" id="pokeMain">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+
+      <div class="col s4 m4 l4" id="pokePic">
+        <div id="picData">
+          Picture
+        </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/wikipoke.js"></script>
+
+  </body>
+</html>
