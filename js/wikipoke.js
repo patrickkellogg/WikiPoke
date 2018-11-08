@@ -56,6 +56,58 @@ function getPokemon (nameIn) {
 
 function showMenus(nameChosen) {
 
+  document.getElementById("mainLink").setAttribute("onclick", "showPoke('main')");
+  document.getElementById("mainLink").style.cursor = 'pointer';
+  document.getElementById("mainLink").style.color =  "blue";
+  document.getElementById("diglettLink").setAttribute("onclick", "showPoke('diglett')");
+  document.getElementById("diglettLink").style.cursor = 'pointer';
+  document.getElementById("diglettLink").style.color =  "blue";
+  document.getElementById("magikarpLink").setAttribute("onclick", "showPoke('magikarp')");
+  document.getElementById("magikarpLink").style.cursor = 'pointer';
+  document.getElementById("magikarpLink").style.color =  "blue";
+  document.getElementById("eeveeLink").setAttribute("onclick", "showPoke('eevee')");
+  document.getElementById("eeveeLink").style.cursor = 'pointer';
+  document.getElementById("eeveeLink").style.color =  "blue";
+
+  document.getElementById("mainBtn").setAttribute("onclick", "showPoke('main')");
+  document.getElementById("mainBtn").style.cursor = 'pointer';
+  document.getElementById("mainBtn").removeAttribute("disabled");
+  document.getElementById("diglettBtn").setAttribute("onclick", "showPoke('diglett')");
+  document.getElementById("diglettBtn").style.cursor = 'pointer';
+  document.getElementById("diglettBtn").removeAttribute("disabled");
+  document.getElementById("magikarpBtn").setAttribute("onclick", "showPoke('magikarp')");
+  document.getElementById("magikarpBtn").style.cursor = 'pointer';
+  document.getElementById("magikarpBtn").removeAttribute("disabled");
+  document.getElementById("eeveeBtn").setAttribute("onclick", "showPoke('eevee')");
+  document.getElementById("eeveeBtn").style.cursor = 'pointer';
+  document.getElementById("eeveeBtn").removeAttribute("disabled");
+
+  switch(nameChosen) {
+    case "diglett":
+      document.getElementById("diglettBtn").setAttribute("disabled", true);
+      document.getElementById("diglettBtn").style.cursor = 'default';
+      document.getElementById("diglettLink").style.color =  "black";
+      document.getElementById("diglettLink").style.cursor = 'default';
+      break;
+    case "magikarp":
+      document.getElementById("magikarpBtn").setAttribute("disabled", true);
+      document.getElementById("magikarpBtn").style.cursor = 'default';
+      document.getElementById("magikarpLink").style.color =  "black";
+      document.getElementById("magikarpLink").style.cursor = 'default';
+      break;
+    case "eevee":
+      document.getElementById("eeveeBtn").setAttribute("disabled", true);
+      document.getElementById("eeveeBtn").style.cursor = 'default';
+      document.getElementById("eeveeLink").style.color =  "black";
+      document.getElementById("eeveeLink").style.cursor = 'default';
+      break;
+    default:
+      document.getElementById("mainBtn").setAttribute("disabled", true);
+      document.getElementById("mainBtn").style.cursor = 'default';
+      document.getElementById("mainLink").style.color =  "black";
+      document.getElementById("mainLink").style.cursor = 'default';
+  }
+
 }
 
 function showPoke(nameIn) {
@@ -177,4 +229,4 @@ function showPoke(nameIn) {
 var mudcub = new Trainer();
 var pokeArray = [];
 pokeArray = mudcub.all();
-showPoke('diglett');
+showPoke('main');
