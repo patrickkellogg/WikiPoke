@@ -2,7 +2,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-class patrickKellogg {
+class Trainer {
   constructor() {
   }
 
@@ -37,7 +37,7 @@ function getPokemon (nameIn) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let dataBack = JSON.parse(this.responseText);
-      console.log(dataBack);
+      //console.log(dataBack);
       let myPoke = new Pokemon;
       myPoke.hp = dataBack.stats[5].base_stat;
       myPoke.attack = dataBack.stats[4].base_stat;
@@ -54,13 +54,27 @@ function getPokemon (nameIn) {
   xhttp.send();
 }
 
+function showMenus(nameChosen) {
+
+}
+
 function showPoke(nameIn) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
+    let myPoke = new Pokemon;
+    //Set information for the default page
+    if (this.status == 404) {
+      myPoke.name = "Main Page";
+      myPoke.hp = "";
+      myPoke.attack = "";
+      myPoke.defense = "";
+      myPoke.abilities = [];
+      this.readystate = 4;
+    }
+    //Set information for one of the three loaded pages
+    if (this.readyState == 4 && (this.status == 200)) {
       let dataBack = JSON.parse(this.responseText);
-      console.log(dataBack);
-      let myPoke = new Pokemon;
+      //console.log(dataBack);
       myPoke.name = capitalizeFirstLetter(dataBack.name);
       myPoke.hp = dataBack.stats[5].base_stat;
       myPoke.attack = dataBack.stats[4].base_stat;
@@ -70,6 +84,9 @@ function showPoke(nameIn) {
         abTemp.push(dataBack.abilities[i].ability.name);
       }
       myPoke.abilities = abTemp;
+    }
+    //Push the information to the screen
+    if (this.readyState == 4 && (this.status == 200 || this.status == 404)) {
       let extraDesc = "";
       let extraPic = "";
       switch(nameIn) {
@@ -86,43 +103,57 @@ function showPoke(nameIn) {
         extraPic = "images/eevee.png";
           break;
         default:
-        extraDesc = "WikiPoké is a webpage developed by Patrick Kellogg to display information for three different Pokemon characters: Diglett, Magikarp, and Eevee. Click one of the buttons or links to begin.";
+        extraDesc = "WikiPoké is a webpage developed by Patrick Kellogg to display information for three different Pokemon characters: Diglett, Magikarp, and Eevee. Click one of the tabs above or links to the left to begin.";
         extraPic = "images/wikipoke.png";
       }
 
-      document.getElementById('pokeHeader').innerHTML = myPoke.name;
+      document.getElementById('headerFont').innerHTML = myPoke.name;
 
-      document.getElementById('pokeMain').innerHTML = extraDesc;
+      let mainText = document.getElementById('pokeMain');
+      mainText.innerHTML = "";
+      let newMainP = document.createElement("p");
+      let newMainFill = document.createTextNode(extraDesc);
+      newMainP.appendChild(newMainFill);
+      mainText.appendChild(newMainP);
 
       document.getElementById('pokePic').innerHTML = "";
 
-      let newName = document.createTextNode(myPoke.name);
-      document.getElementById("pokePic").appendChild(newName);
+      let newPicP = document.createElement("p");
+      let newPicFill = document.createTextNode(myPoke.name);
+      newPicP.appendChild(newPicFill);
+      let newPicP2 = document.createElement("p");
+      let newPicPMisc = document.createTextNode("Pokémon series character");
+      newPicP2.appendChild(newPicPMisc);
+      document.getElementById("pokePic").appendChild(newPicP);
+      document.getElementById("pokePic").appendChild(newPicP2);
 
+      let newImgP = document.createElement("p");
       let newimg = document.createElement("img");
       newimg.src = extraPic;
-      document.getElementById("pokePic").appendChild(newimg);
+      newImgP.appendChild(newimg);
+      document.getElementById("pokePic").appendChild(newImgP);
 
+      let newTotalP = document.createElement("p");
       let newHP = document.createTextNode("HP: " + myPoke.hp);
-      document.getElementById("pokePic").appendChild(newHP);
+      newTotalP.appendChild(newHP);
 
       let newBR1 = document.createElement("br");
-      document.getElementById("pokePic").appendChild(newBR1);
+      newTotalP.appendChild(newBR1);
 
       let newAttack = document.createTextNode("Attack: " + myPoke.attack);
-      document.getElementById("pokePic").appendChild(newAttack);
+      newTotalP.appendChild(newAttack);
 
       let newBR2 = document.createElement("br");
-      document.getElementById("pokePic").appendChild(newBR2);
+      newTotalP.appendChild(newBR2);
 
       let newDefense = document.createTextNode("Defense: " + myPoke.defense);
-      document.getElementById("pokePic").appendChild(newDefense);
+      newTotalP.appendChild(newDefense);
 
       let newBR3 = document.createElement("br");
-      document.getElementById("pokePic").appendChild(newBR3);
+      newTotalP.appendChild(newBR3);
 
       let newAbilities = document.createTextNode("Abilities: ");
-      document.getElementById("pokePic").appendChild(newAbilities);
+      newTotalP.appendChild(newAbilities);
 
       let newul = document.createElement("ul");
       for (let i = 0; i < myPoke.abilities.length; i++) {
@@ -132,27 +163,18 @@ function showPoke(nameIn) {
         newli.appendChild(textLi);
         newul.appendChild(newli);
       }
-      document.getElementById("pokePic").appendChild(newul);
+      newTotalP.appendChild(newul);
 
+      document.getElementById("pokePic").appendChild(newTotalP);
     }
   };
   xhttp.open("GET", "http://fizal.me/pokeapi/api/v2/name/" + nameIn + ".json", true);
   xhttp.send();
-}
-/*
-function getPokemon () {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readystate == 4 && this.status == 200) {
-      // document.write(this.responceText);
-    }
-  };
-  xhttp.open(httpVerb, url, true);
-  xhttp.send();
-}
-*/
 
-//var myPatrick = new patrickKellogg();
-//var pokeArray = [];
-//pokeArray = myPatrick.all();
+  showMenus(nameIn);
+}
+
+var mudcub = new Trainer();
+var pokeArray = [];
+pokeArray = mudcub.all();
 showPoke('diglett');

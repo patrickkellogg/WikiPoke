@@ -1,3 +1,95 @@
+.body {
+  font-family: "Arial", Helvetica, sans-serif;
+}
+
+.pokeLogin {
+  background-color: #e2e2e2;
+  text-align: right;
+  font-size: 12px;
+}
+
+.pokeLogin img {
+  height: 15px;
+}
+
 .pokeSidebar {
-   @extend .blue, .lighten-4;
- }
+  background-color: #e2e2e2;
+  font-size: 12px;
+  height: 100%;
+  min-height: 100vh !important;
+  border-right: 1px solid;
+}
+
+.pokeSidebar img {
+  width: 100%;
+  text-align: center;
+}
+
+.pokeSidebar div {
+  padding: 0 10px 0 10px;
+  text-align: left;
+}
+
+.pokeTabs {
+  background-color: #e2e2e2;
+}
+
+.pokeTabs button {
+
+}
+
+.headerFont {
+  font-size: 36px;
+  padding: 20px 0px 0px 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.pokeHeader hr {
+  margin: 0 10px 0 10px;
+}
+
+.fromFont {
+  font-size: 12px;
+  padding: 10px;
+}
+
+.pokeMain p {
+  margin: 10px;
+}
+
+.pokePic {
+  background-color: #e2e2e2;
+  border-style: solid;
+  border-width: 1px;
+  margin: 15px 0 0 0;
+}
+
+.pokePic img {
+  width: 100%;
+  text-align: center;
+}
+
+.pokePic p:nth-child(1) {
+  font-weight: bold;
+  margin: 14px 0 0 0;
+  text-align: center;
+}
+
+.pokePic p:nth-child(2) {
+  font-weight: normal;
+  margin: 0 0 14px 0;
+  text-align: center;
+}
+
+.pokePic p:nth-child(3) {
+  text-align: center;
+}
+
+.pokePic p:nth-child(4) {
+  text-align: left;
+  margin: 10px;
+}
+
+.pokePic p:nth-child(4) ul {
+  margin: 0 0 0 20px;
+}

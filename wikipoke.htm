@@ -8,49 +8,50 @@
     <link rel="stylesheet"
        href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/wikipoke.css">
   </head>
   <body>
-    <div class="row" id="rowTop">
+    <div class="row rowBody" id="rowBody">
 
-      <div class="col s12" id="pokeLogin">
+      <div class="col s2 m2 l2 pokeSidebar" id = "pokeSidebar">
+        <img src="images/wikilogo.jpg">
+        <div class="mainLink" id="mainLink">Main page</div>
+        <div class="diglettLink" id="diglettLink">Diglett</div>
+        <div class="magikarpLink" id="magikarpLink">Magikarp</div>
+        <div class="eeveeLink" id="eeveeLink">Eevee</div>
+      </div>
+
+      <div class="col s10 m10 l10 pokeLogin" id="pokeLogin">
+        <img src="images/anon.jpg">
         Not logged in
       </div>
 
-    </div>
-    <div class="row" id="rowBody">
-
-      <div class="col s2 m2 l2" id = "pokeSidebar">
-        <img src="images/wikilogo.jpg" width=50><br>
-        Main page<br>
-        Diglett<br>
-        Magikarp<br>
-        Eevee<br>
+      <div class="col s10 m10 l10 pokeTabs" id="pokeTabs">
+        <button onclick="showPoke('main')" class="mainBtn" id="mainBtn">Main</button>
+        <button onclick="showPoke('diglett')" class="diglettBtn" id="diglettBtn">Diglett</button>
+        <button onclick="showPoke('magikarp')" class="magikarpBtn" id="magikarpBtn">Magikarp</button>
+        <button onclick="showPoke('eevee')" class="eeveeBtn" id="eeveeBtn">Eevee</button>
       </div>
 
-      <div class="col s10 m10 l10" id="pokeTabs">
-        <button onclick="showPoke('main')">Main</button>
-        <button onclick="showPoke('diglett')">Diglett</button>
-        <button onclick="showPoke('magikarp')">Magikarp</button>
-        <button onclick="showPoke('eevee')">Eevee</button>
-      </div>
-
-      <div class="col s10 m10 l10" id="pokeHeader">
-        <div class="HeaderFont">
+      <div class="col s10 m10 l10 pokeHeader" id="pokeHeader">
+        <div class="headerFont" id = "headerFont">
           WikiPoké
         </div>
         <hr>
-        <div class="FromFont">
+        <div class="fromFont">
           from http://fizal.me/pokeapi/
         </div>
       </div>
 
-      <div class="col s6 m6 l6" id="pokeMain">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div class="col s6 m6 l6 pokeMain" id="pokeMain">
+        <p>
+          WikiPoké is a webpage developed by Patrick Kellogg to display information for three different Pokemon characters: Diglett, Magikarp, and Eevee. Click one of tabs above or links to the left to begin.
+        </p>
       </div>
 
-      <div class="col s4 m4 l4" id="pokePic">
+      <div class="col s3 m3 l3 pokePic" id="pokePic">
         <div id="picData">
-          Picture
+          <img src="">
         </div>
       </div>
 
