@@ -18,6 +18,7 @@
   height: 100%;
   min-height: 100vh !important;
   border-right: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .pokeSidebar img {
@@ -92,4 +93,21 @@
 
 .pokePic p:nth-child(4) ul {
   margin: 0 0 0 20px;
+}
+
+.mybutton {
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    border-bottom-style: none;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
